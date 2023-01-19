@@ -1,0 +1,71 @@
+﻿@page
+@model Magazin.Pages.Produse.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Produs[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produs[0].Pret)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produs[0].Marime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produs[0].Culoare)
+            </th>
+            <th> 
+                @Html.DisplayNameFor(model => model.Produs[0].Producator.NumeProducator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produs[0].Material.NumeMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produs[0].Sezon.NumeSezon)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Produs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Culoare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producator.NumeProducator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material.NumeMaterial)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Sezon.NumeSezon)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    <a asp-page="Create"><button class="btn btn-primary">Create New</button></a>
+</p>

@@ -1,0 +1,68 @@
+﻿@page
+@model Magazin.Pages.Produse.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Produs</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Produs.ID" />
+            <div class="form-group">
+                <label asp-for="Produs.Nume" class="control-label"></label>
+                <input asp-for="Produs.Nume" class="form-control" />
+                <span asp-validation-for="Produs.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produs.Pret" class="control-label"></label>
+                <input asp-for="Produs.Pret" class="form-control" />
+                <span asp-validation-for="Produs.Pret" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produs.Marime" class="control-label"></label>
+                <input asp-for="Produs.Marime" class="form-control" />
+                <span asp-validation-for="Produs.Marime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produs.Culoare" class="control-label"></label>
+                <input asp-for="Produs.Culoare" class="form-control" />
+                <span asp-validation-for="Produs.Culoare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produs.ProducatorID" class="control-label">Nume Producator</label>
+                <select asp-for="Produs.ProducatorID" class="form-control" asp-items="ViewBag.ProducatorID">
+                </select>
+                <span asp-validation-for="Produs.ProducatorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produs.MaterialID" class="control-label">Tip Material</label>
+                <select asp-for="Produs.MaterialID" class="form-control" asp-items="ViewBag.MaterialID">
+                </select>
+                <span asp-validation-for="Produs.MaterialID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produs.SezonID" class="control-label">Sezon</label>
+                <select asp-for="Produs.SezonID" class="form-control" asp-items="ViewBag.SezonID">
+                </select>
+                <span asp-validation-for="Produs.SezonID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
